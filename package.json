@@ -1,0 +1,74 @@
+{
+  "name": "design-token-pipeline",
+  "version": "0.1.0",
+  "description": "Deterministic design token validation and CSS, TypeScript, and Tailwind generation.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Si1ver01/design-token-pipeline"
+  },
+  "type": "module",
+  "private": false,
+  "sideEffects": false,
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE",
+    "CONTRIBUTING.md",
+    "CHANGELOG.md",
+    "RELEASE_NOTES.md",
+    "SECURITY.md",
+    "docs",
+    "examples"
+  ],
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./package.json": "./package.json"
+  },
+  "bin": {
+    "design-token-pipeline": "./dist/cli.js"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "overrides": {
+    "esbuild": "^0.28.2"
+  },
+  "engines": {
+    "node": ">=24.18.0",
+    "npm": ">=11.16.0"
+  },
+  "scripts": {
+    "build": "node scripts/run-commands.mjs build tsup",
+    "typecheck": "node scripts/run-commands.mjs typecheck tsc --noEmit",
+    "test": "node scripts/run-commands.mjs test vitest run ::: node --test scripts/check-release-tag.test.mjs scripts/check-package.test.mjs",
+    "test:watch": "vitest",
+    "lint": "node scripts/run-commands.mjs lint eslint . --max-warnings=0",
+    "format:check": "prettier . --check",
+    "format": "prettier . --write",
+    "pack:check": "node scripts/check-package.mjs",
+    "docs:check": "node scripts/check-docs.mjs",
+    "security:check": "node scripts/run-commands.mjs security-check node scripts/check-security-dependencies.mjs",
+    "release:check-tag": "node scripts/run-commands.mjs release-check-tag node scripts/check-release-tag.mjs",
+    "verify": "node scripts/run-commands.mjs verify npm run format:check ::: npm run lint ::: npm run security:check ::: npm run typecheck ::: npm run test ::: npm run build ::: npm run pack:check ::: npm run docs:check"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/node": "^24.9.1",
+    "esbuild": "^0.28.2",
+    "eslint": "^10.8.0",
+    "globals": "^17.9.0",
+    "prettier": "^3.9.6",
+    "tsup": "^8.5.1",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.67.0",
+    "vitest": "^4.1.10"
+  }
+}
