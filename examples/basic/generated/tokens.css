@@ -1,0 +1,12 @@
+:root {
+  /* Цвет focus ring */
+  --brand-color-brand-focus: #2563eb;
+  /* Основной цвет бренда */
+  --brand-color-brand-primary: #2563eb;
+  --brand-fontfamily-sans: Inter, system-ui;
+  --brand-fontweight-medium: 500;
+  --brand-opacity-subdued: 0.72;
+  --brand-spacing-md: 1rem;
+  --brand-spacing-sm: 0.5rem;
+  --brand-transitionduration-fast: 150ms;
+}

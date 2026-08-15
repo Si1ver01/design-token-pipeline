@@ -1,0 +1,22 @@
+{
+  "input": "tokens.json",
+  "outDir": "generated",
+  "formats": ["css", "typescript", "tailwind"],
+  "strict": true,
+  "css": {
+    "prefix": "brand",
+    "selector": ":root",
+    "filename": "tokens.css",
+    "includeDescriptions": true
+  },
+  "typescript": {
+    "filename": "tokens.ts"
+  },
+  "tailwind": {
+    "filename": "tailwind-theme.ts",
+    "groups": {
+      "opacity": "opacity"
+    },
+    "strict": true
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "color": {
+    "$type": "color",
+    "brand": {
+      "focus": { "$value": "{color.brand.primary}" },
+      "primary": {
+        "$description": "Основной цвет бренда",
+        "$value": "#2563eb"
+      }
+    }
+  },
+  "spacing": {
+    "$type": "dimension",
+    "sm": { "$value": "0.5rem" }
+  }
+}

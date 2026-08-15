@@ -1,0 +1,6 @@
+{
+  "color": {
+    "$type": "color",
+    "__proto__": { "$value": "#000000" }
+  }
+}
