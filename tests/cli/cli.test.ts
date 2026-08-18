@@ -4,6 +4,7 @@ import { join } from 'node:path';
 
 import { afterEach, describe, expect, it } from 'vitest';
 
+import packageManifest from '../../package.json' with { type: 'json' };
 import { main } from '../../src/cli/main.js';
 import { ExitCode } from '../../src/cli/exit-codes.js';
 
@@ -23,7 +24,11 @@ describe('CLI', () => {
 
     expect(help).toMatchObject({ code: ExitCode.success, stderr: '' });
     expect(help.stdout).toContain('design-token-pipeline build');
-    expect(version).toEqual({ code: ExitCode.success, stdout: '0.1.0\n', stderr: '' });
+    expect(version).toEqual({
+      code: ExitCode.success,
+      stdout: `${packageManifest.version}\n`,
+      stderr: '',
+    });
   });
 
   it('builds, checks, and validates with JSON-only stdout', () => {
