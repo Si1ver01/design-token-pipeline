@@ -222,6 +222,13 @@ function validateConsumer(tarballPath) {
   const cliVersion = run(binPath, ['--version'], { cwd: consumerDirectory });
   if (cliVersion !== expectedVersion) fail('cli-version-mismatch', { expectedVersion, cliVersion });
 
+  log('DEBUG', '[FIX:package-version] version-contract-passed', {
+    expectedVersion,
+    esmVersion,
+    cjsVersion,
+    cliVersion,
+  });
+
   log('INFO', 'consumer-smoke-passed', {
     package: `${packageManifest.name}@${packageManifest.version}`,
     entrypoints: ['import', 'require'],
